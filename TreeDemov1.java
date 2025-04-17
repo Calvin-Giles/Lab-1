@@ -126,13 +126,36 @@ class Node{
 	   
 	   
 	   
-	   /*
-	   a method to find the node in the tree
-	   with a specific value
+	   /**
+	    * A method to find the node in the tree
+	    * with a specific value
+       * @param root the root node value 
+       * @param key the number to find
+       * @return boolean
 	   */
 	   public boolean find(Node root, int key){
-		 //implement in here
-		  
+		 
+         //base cases 
+         if (root == null) {
+            return false;
+         }
+         
+         if (root.value == key) {
+            return true;
+         }
+		   
+         //recur left
+         boolean result1 = find(root.left, key);
+         
+         //key is in left subtree
+         if (result1) {
+            return true;
+         }
+         
+         //search right subtree
+         boolean result2 = find(root.right, key);
+         
+         return result2;
 	   }
 	   
 	   
