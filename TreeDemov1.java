@@ -53,13 +53,26 @@ class Node{
 	      }//closing main if-else 
 	   }
 	   
-	   /*
-	   pre-order traversal
-	   Prints the value of every node preorder
-	   */
+	   /**
+	    * Preorder traversal
+	    * Prints the value of every node preorder
+       * @param root the current Node in the tree
+	    */
 	   public void preOrderTraversal(Node root){
-		//implement in here
 		   
+         //base case
+         if (root == null) {
+            return;
+         }
+		   
+         //print root value
+         System.out.print(root.value + " ");
+         
+         //recur left
+         preOrderTraversal(root.left);
+         
+         //recur right
+         preOrderTraversal(root.right);
 	   }
 
 	   
