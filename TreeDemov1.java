@@ -132,7 +132,7 @@ class Node{
        * @param root the root node value 
        * @param key the number to find
        * @return boolean
-	   */
+	    */
 	   public boolean find(Node root, int key){
 		 
          //base cases 
@@ -160,13 +160,20 @@ class Node{
 	   
 	   
 	   
-	   /*
-	   a method to find the node in the tree
-	   with a smallest key
-	   */
+	   /**
+	    * A method to find the node in the tree with the smallest key
+	    * @param the root Node
+       * @return the smallest value in the tree
+	    */
 	   public int getMin(Node root){
-         //implement in here
+         
+         //base case
+         if (root.left == null) {
+            return root.value;
+         }
 	      
+         //recur left until last node is reached
+         return getMin(root.left);
 	   }
 	  
 	  
