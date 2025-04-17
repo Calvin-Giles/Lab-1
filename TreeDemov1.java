@@ -101,13 +101,27 @@ class Node{
 	   
 	   
 	   
-	   /*
-	   post-order traversal
-	   */
+	   /**
+       * PostOrderTraversal
+       * Prints the value of each node in post order
+       * @param root the current Node in the tree
+       */
 	  
 	   public void postOrderTraversal(Node root){
-         //implement in here
+         
+         //base case
+         if (root == null) {
+            return;
+         }
 		   
+         //recur left
+         postOrderTraversal(root.left);
+         
+         //recur right
+         postOrderTraversal(root.right);
+         
+         //print the current nodes value
+         System.out.print(root.value + " ");
 	   }
 	   
 	   
