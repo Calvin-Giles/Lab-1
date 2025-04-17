@@ -132,7 +132,7 @@ class Node{
        * @param root the root node value 
        * @param key the number to find
        * @return boolean
-	   */
+	    */
 	   public boolean find(Node root, int key){
 		 
          //base cases 
@@ -160,31 +160,48 @@ class Node{
 	   
 	   
 	   
-	   /*
-	   a method to find the node in the tree
-	   with a smallest key
-	   */
+	   /**
+	    * A method to find the node in the tree with the smallest key
+	    * @param the root Node
+       * @return the smallest value in the tree
+	    */
 	   public int getMin(Node root){
-         //implement in here
+         
+         //base case
+         if (root.left == null) {
+            return root.value;
+         }
 	      
+         //recur left until last node is reached
+         return getMin(root.left);
 	   }
 	  
 	  
 	  
-	   /*
-	   a method to find the node in the tree
-	   with a largest key
-	   */
+	   /**
+	    * A method to find the node in the tree with the largest key
+	    * @param the root Node
+       * @return the largest value in the tree
+	    */
 	   public int getMax(Node root){
-         //implement in here
+         
+         //base case
+         if (root.right == null) {
+            return root.value;
+         }
+	      
+         //recur right until last node is reached
+         return getMin(root.right);   
 	   }
 	   
-	   
-	   
-	   /*
-	   this method will not compile until getMax
-	   is implemented
-	   */
+      
+      
+	   /**
+	    * A method to delete the node in the tree with the key passed in
+	    * @param the root Node
+       * @param the key value to be deleted
+       * @return the root Node
+	    */
 	   public Node delete(Node root, int key){
 	      
 	      if(root == null){
@@ -219,7 +236,7 @@ class Node{
 
 
 
-	public class TreeDemo{
+	public class TreeDemov1{
 	   public static void main(String[] args){
 	      BinarySearchTree t1  = new BinarySearchTree();
 	      t1.insert( 24);
@@ -228,11 +245,26 @@ class Node{
 	      t1.insert(9);
 	      t1.insert(90);
 	      t1.insert(22);
-	            
+	      
+         //test the implemented methods      
 	      System.out.print("in-order :   ");
 	      t1.inOrderTraversal(t1.root);
 	      System.out.println();
-	           
 	      
+         System.out.print("pre-order :   ");
+	      t1.preOrderTraversal(t1.root);     
+	      System.out.println();
+         
+         System.out.print("post-order :   ");
+	      t1.postOrderTraversal(t1.root);     
+	      System.out.println();
+         
+         System.out.print("min number in tree: " + t1.getMin(t1.root));
+         System.out.println();
+         
+         System.out.print("max number in tree: " + t1.getMax(t1.root));
+         System.out.println();
+         
+         System.out.print("Test to see if 100 is in the tree: " + t1.find(t1.root, 100));
 	   }  
 	}
