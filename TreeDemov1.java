@@ -77,11 +77,26 @@ class Node{
 
 	   
 	   
-	   /*
-	   in-order traversal
-	   */
+	   /**
+       * Inorder traversal
+       * Prints the value of every node in order
+       * @param root the current Node in the tree
+       */
 	   public void inOrderTraversal(Node root){
-	      //implement in here
+	      
+         //base case
+         if (root == null) {
+            return;
+         }
+         
+         //recur left
+         inOrderTraversal(root.left);
+         
+         //print the nodes value
+         System.out.print(root.value + " ");
+         
+         //recur right
+         inOrderTraversal(root.right);
 	   }
 	   
 	   
